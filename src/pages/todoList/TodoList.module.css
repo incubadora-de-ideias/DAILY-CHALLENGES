@@ -1,0 +1,166 @@
+.container {
+    background-color: var(--gray-600);
+    height: 100%;
+}
+
+.header {
+    height: 12.5rem;
+    background-color: var(--gray-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 46rem;
+    gap: 0.5rem;
+    display: flex;
+    margin: 0 auto;
+    margin-top: -1.6875rem;
+}
+
+.input {
+    background-color: var(--gray-500);
+    border: 1px solid var(--gray-700);
+    color: var(--gray-300);
+    padding: 1rem;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.button {
+    background-color: var(--blue-dark);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    height: 3.25rem;
+    width: 5.625rem;
+    padding: 1rem;
+}
+
+.main {
+    width: 46rem;
+    margin: 0 auto;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tasks {
+    display: flex;
+    justify-content: space-between;
+}
+
+.createdTasks,
+.fineshTasks {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gray-200);
+}
+
+.createdTasks>span,
+.fineshTasks>span {
+    background-color: var(--gray-400);
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+}
+
+.createdTasks>strong {
+    color: var(--blue);
+}
+
+.fineshTasks>strong {
+    color: var(--purple);
+}
+
+.tasksList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.emptyList {
+    border-radius: 8px;
+    border-top: 1px solid var(--gray-400);
+    color: var(--gray-300);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem 1.5rem;
+}
+
+.emptyList>p {
+    color: var(--gray-300);
+    font-size: 1rem;
+    line-height: 140%;
+    font-weight: bold;
+}
+
+.emptyList>p+p {
+    margin-top: -1rem;
+}
+
+.task {
+    background-color: var(--gray-500);
+    border: 1px solid var(--gray-400);
+    border-radius: 8px;
+    color: var(--gray-100);
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task>span {
+    width: 100%;
+}
+
+.checkboxLabel .checkboxIndicator {
+    border-radius: 999px;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    background-color: var(--gray-600);
+    border: 2px solid var(--blue);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.checkboxLabel input:checked + .checkboxIndicator {
+    border-radius: 999px;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--purple-dark);
+    background-image: url('../../assets/checked.svg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    
+}
+.checkboxLabel input {
+    display: none;
+}
+
+.fineshTask {
+    color: var(--gray-300);
+    text-decoration: line-through;
+}
+
+.deleteButton {
+    background-color: transparent;
+    border: none;
+    color: var(--gray-300);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    htm {
+        font-size: 87.5%;
+    }
+    
+}

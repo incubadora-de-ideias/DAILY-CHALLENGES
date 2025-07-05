@@ -1,0 +1,24 @@
+.container{
+    background-color: var(--gray-700);
+    height: 100vh;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container > h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    line-height: 160%;
+}
+
+.container > main{
+    border-radius: 8px;
+    background-color: var(--gray-500);
+    padding: 4rem;
+    font-size: x-large;
+    box-shadow: 0px 0px 30px var(--gray-100);
+}
