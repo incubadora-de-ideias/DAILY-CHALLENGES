@@ -1,67 +1,23 @@
 import { useState } from "react";
-import { assets } from "./assets/assets";
-import style from "./style/TodoList.module.css";
 import { CustonButtom } from "./components/CustonButtom";
 import { CreatedTasks } from "./components/CreateTasks";
 import { FineshTasks } from "./components/FineshTasks";
+import style from "./style/TodoList.module.css";
+import { assets } from "./assets/assets";
 import { Task } from "./components/Task";
+import { useTasks } from "./hook/useTasks";
 
 function App() {
   const [taskName, setTaskName] = useState<string>("");
-  const [tasks, setTasks] = useState<
-    {
-      name: string;
-      isFinished?: boolean;
-    }[]
-  >([]);
-  const [counterValue, setCounterValue] = useState<{
-    created: number;
-    finished: number;
-  }>({
-    created: tasks.length,
-    finished: 0,
-  });
+  const { tasks, addTask, deleteTask, toggleTask, counters } = useTasks();
 
-  const handleAddTask = (taskName: string) => {
-    event?.preventDefault();
-
-    if (tasks.some((task) => task.name === taskName)) {
-      alert("Tarefa já existe na lista!");
+  const handleAddTask = (name: string) => {
+    if (!addTask(name)) {
+      alert("Tarefa já existe ou nome inválido!");
       setTaskName("");
       return;
     }
-
-    if (taskName.trim() === "") return;
-    setTasks((prev) => [...prev, { name: taskName, isFinished: false }]);
-    setCounterValue((prev) => ({
-      ...prev,
-      created: prev.created + 1,
-    }));
     setTaskName("");
-  };
-
-  const handleDeleteTask = (taskName: string) => {
-    setTasks(tasks.filter((task) => task.name !== taskName));
-    setCounterValue((prev) => ({
-      ...prev,
-      created: prev.created - 1,
-    }));
-  };
-
-  const handleToggleTask = (taskName: string) => {
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.name === taskName
-          ? { ...task, isFinished: !task.isFinished }
-          : task
-      )
-    );
-    setCounterValue((prev) => ({
-      ...prev,
-      finished:
-        prev.finished +
-        (tasks.find((task) => task.name === taskName)?.isFinished ? -1 : 1),
-    }));
   };
 
   return (
@@ -69,7 +25,13 @@ function App() {
       <header className={style.header}>
         <img src={assets.logo} alt="" />
       </header>
-      <form className={style.form}>
+      <form
+        className={style.form}
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleAddTask(taskName);
+        }}
+      >
         <input
           placeholder="Adicione uma nova tarefa"
           className={style.input}
@@ -83,10 +45,10 @@ function App() {
       </form>
       <main className={style.main}>
         <div className={style.tasks}>
-          <CreatedTasks counterValue={counterValue.created} />
+          <CreatedTasks counterValue={counters.created} />
           <FineshTasks
-            fineshCounter={counterValue.finished}
-            taskCounter={counterValue.created}
+            fineshCounter={counters.finished}
+            taskCounter={counters.created}
           />
         </div>
         <div>
@@ -96,9 +58,9 @@ function App() {
                 <Task
                   key={index}
                   name={task.name}
-                  onDelect={() => handleDeleteTask(task.name)}
+                  onDelect={() => deleteTask(task.name)}
                   isfinesh={task.isFinished}
-                  onChange={() => handleToggleTask(task.name)}
+                  onChange={() => toggleTask(task.name)}
                 />
               ))}
             </div>
