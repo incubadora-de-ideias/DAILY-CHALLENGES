@@ -40,6 +40,7 @@
 
 .main {
     width: 46rem;
+    height: 100vh;
     margin: 0 auto;
     margin-top: 4rem;
     display: flex;
