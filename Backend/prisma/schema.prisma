@@ -1,0 +1,27 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x", "rhel-openssl-1.1.x"]
+  output        = "../src/generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Tarefa {
+  id              String     @id @default(uuid())
+  nome            String
+  descricao       String?
+  data_criacao    DateTime   @default(now())
+  data_vencimento DateTime
+  data_conclusao  DateTime?
+  prioridade      Prioridade @default(Baixa)
+  estado          Boolean    @default(false)
+}
+
+enum Prioridade {
+  Baixa
+  Media
+  Alta
+}
