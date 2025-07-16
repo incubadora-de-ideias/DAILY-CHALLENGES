@@ -21,10 +21,10 @@ const criarTarefa = () => {
   ...tarefas, ])
 }
 
-inputref.current!.value=""
+// inputref.current.value=""
 
 
-const Tarefapronta(id.number)=> {
+const Tarefapronta=(id:number)=> {
   setTarefas(tarefas.map((tarefa) => {
     if (tarefa.id === id) {
       return {...tarefa, Pronto: true}
@@ -43,9 +43,6 @@ const Tarefapronta(id.number)=> {
     <div className='min-h-scream bg-slate700'>
       <div className=''>
         <h1>Tarefas</h1>
-
-
-
         <div className='flex flex-col gap-2'>
 
         {tarefas.map((tarefa) => 
