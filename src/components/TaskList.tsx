@@ -1,14 +1,20 @@
 
-import useTask from '../hooks/useTasks'
-import clearCompletedTasks from '../utils/clearCompletedTasks'
+import {useTasks} from '../hooks/useTasks'
+import { Task } from './types/Task'
+
+
+
+
+
+
 const TaskList = () => {
 
-    const { tasks, deleteTask, toggleTask, clearCompleted} = useTask()
+    const { tasks, deleteTask,toggleTask, clearCompleted} = useTasks()
 
     if(tasks.length === 0){
         return <p className='text-center mt-4 text-gray-500'>Nenhuma tarefa encontrada</p>
         
-        {tasks.some((tasks) => tasks.completa) && (
+        {tasks.some(() => Task.completa) && (
             <div className='text-riht mb-4'>
                 <button 
                 onClick={clearCompleted}
@@ -24,18 +30,18 @@ const TaskList = () => {
 
     return (
        <ul className='space-y-4 mt-6'>
-        {tasks.map(tasks) => (
+        {Task.map(tasks)  (
 
-            <li key={tasks.id} className='border p-4 rounded-lg shadow-sm bg-white'>
+            <li key={Task.id} className='border p-4 rounded-lg shadow-sm bg-white'>
                 <div className='flex justify-between items-center'>
                     <div>
-                        <h3 className='font-semibold text-lg'>{tasks.descricao} </h3>
-                        <p className='text-sm text-gray-500'>Prazo: {tasks.prazo}</p>
-                        <p className='text-sm text-gray-600 mt-1'>Prioridade:{tasks.prioridade}</p>
-                        {tasks.notas && <p className='text-sm mt-1'>Notas: {tasks.notas}</p>}
-                        {tasks.tags.length > 0 && (
+                        <h3 className='font-semibold text-lg'>{Task.descricao} </h3>
+                        <p className='text-sm text-gray-500'>Prazo: {Task.prazo}</p>
+                        <p className='text-sm text-gray-600 mt-1'>Prioridade:{Task.prioridade}</p>
+                        {Task.notas && <p className='text-sm mt-1'>Notas: {Task.notas}</p>}
+                        {Task.tags.length > 0 && (
                             <div className='text-sm mt-1 text-blue-500'>
-                                Tags: {tasks.tags.join(', ')}
+                                Tags: {Task.tags.join(', ')}
                             </div>
                         )}
                     </div>

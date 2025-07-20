@@ -1,15 +1,15 @@
 
 import {createContext, useEffect, useState } from 'react' 
-import { Task }   from './types/Task'
+import { Task }   from '../types/Task'
 
 
 interface TaskContextType{
     tasks: Task[]
-    addTask: (task: Task)=> void
-    updateTask:(task: Task)=> void
-    deleteTask: (id: string)=> void
-    toggleTask: (id: string)=> void
-    clearCompleted: ()=> void
+    addTask: (task: Task) => void
+    updateTask:(task: Task) => void
+    deleteTask: (id: string) => void
+    toggleTask: (id: string) => void
+    clearCompleted: () => void
 }
 
 export const TaskContext = createContext({} as TaskContextType)
@@ -61,14 +61,12 @@ export const TaskProvider = ({children}: {children:React.ReactNode}) => {
       {children}
     </TaskContext.Provider>
   )
-
   useEffect ( ()=>{
     const data = localStorage.getItem('tasks')
     if (data){
       setTasks(JSON.parse(data))
-
-
-    }
+     }
+     
   }, [])
     useEffect(()=> {
       localStorage.setItem("tasks",JSON.stringify(tasks))

@@ -1,12 +1,12 @@
 
 import { useState } from "react"
 import { useTasks } from "../hooks/useTasks"
-import { Task,Priority } from "./types/Task"
+import { Task } from "./types/Task"
 
 const TaskForm = () => {
 
     const {addTask} = useTasks()
-
+    type Priority = 'Baixa' | 'Média' | 'Alta'
     const [descricao, setDescricao] = useState("")
     const [prazo, setPrazo] = useState("")
     const [prioridade, setPrioridade] = useState<Priority>("Baixa")

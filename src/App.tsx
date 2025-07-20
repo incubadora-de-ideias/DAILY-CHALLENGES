@@ -11,7 +11,8 @@ export default function App() {
   return (
     <Router>
       <div className="p-4">
-        {/* Navegação simples */}
+
+      
         <nav className="mb-4 space-x-4">
           <Link to="/" className="text-blue-600 hover:underline">Dashboard</Link>
           <Link to="/tarefas" className="text-blue-600 hover:underline">Tarefas</Link>
@@ -19,7 +20,6 @@ export default function App() {
           <Link to="/tarefas/atrasadas" className="text-blue-600 hover:underline">Atrasadas</Link>
         </nav>
 
-        {/* Rotas */}
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/tarefas" element={<Home />} />
