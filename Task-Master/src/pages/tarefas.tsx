@@ -16,7 +16,7 @@ export default function ListaTarefas() {
         <ul className="space-y-3 gap-85 gap-y-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {tasks.map((task) => (
             <li key={task.id} className="p-3 rounded-lg">
-                <CardTask id={task.id} title={task.title} description={task.description || "Sem descrição"} dueDate={new Date(task.dueDate).toLocaleDateString()} ></CardTask>
+                <CardTask id={task.id} title={task.title} description={task.description || "Sem descrição"} dueDate={new Date(task.dueDate).toLocaleDateString()} done={task.done}></CardTask>
                 
                 {/* <h3 className="text-xl font-semibold text-white">{task.title}</h3>
                 <p className="text-gray-400">{task.description || "Sem descrição"}</p>
