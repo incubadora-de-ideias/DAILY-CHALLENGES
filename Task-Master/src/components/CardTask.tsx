@@ -47,7 +47,7 @@ export const CardTask = (props: CardTaskProps) => {
         </div>
 
         <div className="h-full p-1 hover:cursor-pointer" title="Editar esta tarefa" onClick={() => navigate(`/editar/${props.id}`)} >
-            <p className="p-2.5 break-words whitespace-normal">{props.description}</p>
+            <p className="p-2.5 break-words whitespace-normal line-clamp-5">{props.description}</p>
         </div>
         
         <div className=" flex justify-between p-2.5 bg-blue-300 rounded-b-xl">
