@@ -1,5 +1,6 @@
 import { useTasks } from "../hooks/useTasks";
 import { useNavigate } from "react-router-dom";
+import { Status, StatusOfPriority } from "./taskStatus";
 
 interface CardTaskProps {
   id: number;
@@ -7,6 +8,7 @@ interface CardTaskProps {
   description: string;
   dueDate: string;
   done: boolean;
+  priority: string;
 }
 
 interface Complete_uncompleteProps {
@@ -42,8 +44,12 @@ export const CardTask = (props: CardTaskProps) => {
   return (
     <div className="hover:bg-blue-50 flex flex-col rounded-xl bg-amber-50 text-black w-74 h-62 justify-between">
         <div className=" flex justify-between p-2.5 bg-blue-400 rounded-t-xl" >
-            <h3>{props.title}</h3>
-            <Complete_uncomplete done={props.done} id={props.id}></Complete_uncomplete>
+            <h3 title={props.title} className="line-clamp-1">{props.title}</h3>
+            <div className="flex gap-1 items-center">
+              <StatusOfPriority dueDate={props.dueDate} priority={props.priority}></StatusOfPriority>
+              <Status dueDate={props.dueDate} done={props.done}></Status>
+              <Complete_uncomplete done={props.done} id={props.id}></Complete_uncomplete>
+            </div>
         </div>
 
         <div className="h-full p-1 hover:cursor-pointer" title="Editar esta tarefa" onClick={() => navigate(`/editar/${props.id}`)} >

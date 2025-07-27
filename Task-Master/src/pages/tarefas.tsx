@@ -5,8 +5,7 @@ import { useTasks } from "../hooks/useTasks";
 export default function ListaTarefas() {
   const { tasks } = useTasks();
 
-  if (tasks.length === 0) {
-    return <Init> <p className="text-gray-300">Nenhuma tarefa cadastrada.</p> </Init> }
+  if (tasks.length === 0) { return <Init> <p className="text-gray-300">Nenhuma tarefa cadastrada.</p> </Init> }
 
   return (
     <Init>
@@ -16,7 +15,7 @@ export default function ListaTarefas() {
         <ul className="space-y-3 gap-85 gap-y-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {tasks.map((task) => (
             <li key={task.id} className="p-3 rounded-lg">
-                <CardTask id={task.id} title={task.title} description={task.description || "Sem descrição"} dueDate={new Date(task.dueDate).toLocaleDateString()} done={task.done}></CardTask>
+                <CardTask id={task.id} title={task.title} description={task.description || "Sem descrição"} dueDate={new Date(task.dueDate).toLocaleDateString()} done={task.done} priority={task.priority || "low"}></CardTask>
                 
                 {/* <h3 className="text-xl font-semibold text-white">{task.title}</h3>
                 <p className="text-gray-400">{task.description || "Sem descrição"}</p>

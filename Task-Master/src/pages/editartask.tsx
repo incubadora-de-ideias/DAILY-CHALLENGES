@@ -32,7 +32,7 @@ export default function EditarTarefa() {
     return(
         <Init>
             <div>
-                <h1 className="text-2xl font-bold mb-4 pt-5">Editar Tarefa " {taskToEdit?.title} "</h1>
+                <h1 className="text-2xl w-screen font-bold mb-4 pt-5">Editar Tarefa " {taskToEdit?.title} "</h1>
                 <div className="bg-stone-760 p-6 rounded-xl shadow-md w-fit h-fit">
                     <div className="mb-4 flex gap-8">
                         <div className="mb-4">

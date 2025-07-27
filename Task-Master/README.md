@@ -1,69 +1,48 @@
-# React + TypeScript + Vite
+# 🎯 TaskMaster (Gerenciador de Tarefas)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  Este é um projeto de gerenciamento de tarefas, feito usando: TYPESCRIPT + REACT + VITE.
 
-Currently, two official plugins are available:
+  ---
+  
+## ⚙️ Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  1. Permite **criar tarefas**, inserindo um *título* pra esta, uma *descrição*(opcional), *data de vencimento* obrigatória, etc.
 
-## Expanding the ESLint configuration
+  2. É possível ainda **editá-las**, alterando todos os dados se necessário. Pra tal, basta apenas *clicar sobre a task*.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  3. Permite também **eliminá-las**.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  ---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🧩 Interface do Card da Task
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1️⃣ Header
+
+  Temos um **header**(cabeçalho), onde é exibido o título da task à esquerda, alguns ícones e ainda um botão à direita.
+  
+  ```
+  • O primeiro ícone representa o **status de prioridade** da task.
+    1. O vermelho é de **prioridade alta.**
+    2. O amarelo é de **prioridade média**.
+    3. E o verde é de **prioridade baixa**.
+
+  • O segundo representa o **status da task**, quanto a a **proximidade da data de vencimento**.
+
+  • Já o botão, serve para **marcar a task como completa ou incompleta**.
 ```
+  ---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2️⃣ Body
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+  No body do card da task é apresentado um trecho da **descrição** da task.
 ```
+  • ⚠️ Clicando aqui, você abre a task e consegue editá-la.
+```
+  ---
+
+### 3️⃣ Footer
+
+  Já no **footer**(rodapê) do card, temos a esquerda a informação da data de vencimento da task e um botão a direita.
+  ```
+  • O botão serve para *deletar a task*.
+  ```
