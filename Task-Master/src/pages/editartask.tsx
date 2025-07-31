@@ -32,7 +32,7 @@ export default function EditarTarefa() {
     return(
         <Init>
             <div>
-                <h1 className="text-2xl w-screen font-bold mb-4 pt-5">Editar Tarefa " {taskToEdit?.title} "</h1>
+                <h1 className="text-2xl font-bold mb-4 pt-5">Editar Tarefa " {taskToEdit?.title} "</h1>
                 <div className="bg-stone-760 p-6 rounded-xl shadow-md w-fit h-fit">
                     <div className="mb-4 flex gap-8">
                         <div className="mb-4">
@@ -41,7 +41,7 @@ export default function EditarTarefa() {
                         </div>
                         <div className="mb-4">
                             <label className="block text-gray-300 mb-2" htmlFor="description">Descrição(Notas)</label>
-                            <textarea value={description} onChange={(e) => setDescription(e.target.value)} id="description" placeholder="Opcional" rows={5} className="w-2xl p-2 bg-neutral-700 border border-gray-600 rounded-lg"></textarea>
+                            <textarea value={description} onChange={(e) => setDescription(e.target.value)} id="description" placeholder="Opcional" rows={5} className="w-180 p-2 bg-neutral-700 border border-gray-600 rounded-lg"></textarea>
                         </div >
                     </div>
                     <div className="mb-4 flex gap-8">
@@ -74,7 +74,7 @@ export default function EditarTarefa() {
                         editTask(identifier, title, new Date(dueDate), tag, description, priority)
                         alert('Tarefa editada com Sucesso.')
                         navigate("/listatarefas")} }
-                        className="bg-blue-600 hover:bg-blue-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded-lg">Salvar</button>
+                        className="bg-blue-600 hover:bg-blue-700 w-full hover:cursor-pointer text-white font-bold py-2 px-4 rounded-lg">Salvar</button>
                 </div>
             </div>
         </Init>

@@ -1,1 +1,10 @@
 @import 'tailwindcss';
+@plugin 'tailwind-scrollbar';
+@tailwind utilities;
+
+/* opcional: personalização da scrollbar */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+}

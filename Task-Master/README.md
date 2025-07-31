@@ -12,6 +12,8 @@
 
   3. Permite também **eliminá-las**.
 
+  4. Permite **filtrar** as suas tasks pelo **Status**(Concluídas/Não Concluídas); **Prioridades** e **Prazo**(de hoje, atrasadas, etc.).
+
   ---
 
 ## 🧩 Interface do Card da Task
@@ -42,7 +44,20 @@
 
 ### 3️⃣ Footer
 
-  Já no **footer**(rodapê) do card, temos a esquerda a informação da data de vencimento da task e um botão a direita.
+  Já no **footer**(rodapê) do card, temos a esquerda a informação sobre o vencimento da task e um botão a direita.
   ```
   • O botão serve para *deletar a task*.
+  ```
+
+  ---
+
+## 🔧 Instalações
+
+  1. Date-fns
+  ```
+  npm install date-fns
+  ```
+  2. Tailwind-scrollbar
+  ```
+  npm install tailwind-scrollbar
   ```

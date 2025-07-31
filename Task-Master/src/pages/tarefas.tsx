@@ -17,13 +17,6 @@ export default function ListaTarefas() {
             <li key={task.id} className="p-3 rounded-lg">
                 <CardTask id={task.id} title={task.title} description={task.description || "Sem descrição"} dueDate={new Date(task.dueDate).toLocaleDateString()} done={task.done} priority={task.priority || "low"}></CardTask>
                 
-                {/* <h3 className="text-xl font-semibold text-white">{task.title}</h3>
-                <p className="text-gray-400">{task.description || "Sem descrição"}</p>
-                <p className="text-sm text-gray-500">Prioridade: {task.priority}</p>
-                <p className="text-sm text-gray-500">Vence em: {new Date(task.dueDate).toLocaleDateString()}</p>
-                <p className="text-sm text-gray-500">Tag: {task.tag || "Nenhuma"}</p>
-                <p className="text-sm text-gray-500">Status: {task.done ? "Concluída" : "Pendente"}</p>*/}
-                
             </li>
             ))}
         </ul>

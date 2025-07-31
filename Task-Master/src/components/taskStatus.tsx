@@ -21,38 +21,32 @@ export const Status = (props: StatusProps) => {
     const mesesRestantes = differenceInMonths(parseDataBrasileiraParaISO(props.dueDate), hoje);
     const anosRestantes = differenceInYears(parseDataBrasileiraParaISO(props.dueDate), hoje);
     const dataFormatada = formatDistance(parseDataBrasileiraParaISO(props.dueDate), hoje, { locale: ptBR });
-
-    console.log("Data em string:", props.dueDate);
-    console.log("Data de vencimento:", vencimento);
-    console.log("Data atual:", hoje);
-    console.log("Dias restantes:", diasRestantes);
-    console.log("Meses restantes:", mesesRestantes);
-    console.log("Anos restantes:", anosRestantes);
-    console.log("Data formatada:", dataFormatada);
     
     if (props.done === true) {
         return (
-            <p title="Status" className="hover:cursor-default items-center rounded-2xl p-0.5">⚪</p>
+            <img title="Status" className="rounded-2xl" src="/white.png" alt="Ícone" width={34} height={34} />
+
         )
     } else {
         return (
-            <p title="Status" className="hover:cursor-default items-center rounded-2xl p-0.5">🔴</p>
+            <img title="Status" className="rounded-2xl" src="/red.png" alt="Ícone" width={34} height={34} />
         )
     }
 }
 
+
 export const StatusOfPriority = (props: StatusProps) => {
     if (props.priority === "low") {
         return (
-            <img title="Prioridade: baixa" className="rounded-2xl" src="/low.png" alt="Ícone" width={34} height={34} />
+            <img title="Prioridade: baixa" className="rounded-2xl" src="/low.png" alt="Ícone" width={32} height={32} />
         )
     } else if (props.priority === "medium") {
         return (
-            <img title="Prioridade: média" className="rounded-2xl" src="/medium.png" alt="Ícone" width={34} height={34}/>
+            <img title="Prioridade: média" className="rounded-2xl" src="/medium.png" alt="Ícone" width={32} height={32}/>
         )
     } else {
         return (
-            <img title="Prioridade: alta" className="rounded-2xl" src="/high.png" alt="Ícone" width={34} height={34} />
+            <img title="Prioridade: alta" className="rounded-2xl" src="/high.png" alt="Ícone" width={32} height={32} />
         )
     }
 }
