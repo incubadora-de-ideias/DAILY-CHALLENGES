@@ -1,8 +1,8 @@
-import { differenceInDays } from 'date-fns'
+import { differenceInDays, differenceInHours } from 'date-fns'
 import { CardTask } from "../components/CardTask";
 import { useTasks } from "../hooks/useTasks";
 import { useMemo } from "react";
-
+ 
 interface filterProps {
     filter: string;
 }
@@ -17,6 +17,19 @@ export const Filter = (props: filterProps) => {
     const mediumPriorityTasks = useMemo(() => {return tasks.filter((task) => task.priority === "medium")}, [tasks])
     const highPriorityTasks = useMemo(() => {return tasks.filter((task) => task.priority === "high")}, [tasks])
 
+    function horasRestantes(dueDate: string): number {
+        const today = new Date();
+        function parseDataBrasileiraParaISO(dataBR: string): string {
+            const [dia, mes, ano] = dataBR.split("/");
+            return `${ano}-${mes}-${dia}`;
+          }
+
+        if (dueDate.includes("/")) {
+            dueDate = parseDataBrasileiraParaISO(dueDate);
+        }
+    
+        return differenceInHours(new Date(dueDate), today);
+    }
     function diasRestantes(dueDate: string): number {
         const today = new Date();
         function parseDataBrasileiraParaISO(dataBR: string): string {
@@ -32,7 +45,8 @@ export const Filter = (props: filterProps) => {
     }
     
     const overdueTasks = useMemo(() => { return tasks.filter((task) => { return diasRestantes(String(task.dueDate)) < 0 && task.done === false; }); }, [tasks]);
-    const todayTasks = useMemo(() => { return tasks.filter((task) => { return diasRestantes(String(task.dueDate)) === 0 && task.done === false; }); }, [tasks]);
+    const todayTasks = useMemo(() => { return tasks.filter((task) => { return diasRestantes(String(task.dueDate)) === 0 && horasRestantes(String(task.dueDate)) < 0 && task.done === false; }); }, [tasks]);
+    const tomorrowTasks = useMemo(() => { return tasks.filter((task) => { return diasRestantes(String(task.dueDate)) === 0 && horasRestantes(String(task.dueDate)) > 0 && task.done === false; }); }, [tasks]);
     const weekTasks = useMemo(() => { return tasks.filter((task) => { return diasRestantes(String(task.dueDate)) <= 7 && task.done === false && diasRestantes(String(task.dueDate)) > 0; }); }, [tasks]);
     const otherTasks = useMemo(() => { return tasks.filter((task) => { return diasRestantes(String(task.dueDate)) > 7; }); }, [tasks]);
 
@@ -40,9 +54,9 @@ export const Filter = (props: filterProps) => {
         if (tasks.length === 0) {
             return null
         } else {
-                 return ( <div className="border-b-2 border-gray-600 mb-5">
-                             <h1 className="text-2xl font-bold p-4">{title}</h1>
-                             <ul className="space-y-3 gap-y-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                 return ( <div className="mb-5">
+                             <h1 className="border-b-3 border-blue-600 text-2xl font-bold p-4">{title}</h1>
+                             <ul className="space-y-3 gap-5 gap-y-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                                 {tasks.map((task) => (
                                     <li key={task.id} className="flex p-3 rounded-lg justify-center">
                                         <CardTask id={task.id} title={task.title} description={task.description || "Sem descrição"} dueDate={new Date(task.dueDate).toLocaleDateString()} done={task.done} priority={task.priority || "low"}></CardTask>
@@ -78,6 +92,8 @@ export const Filter = (props: filterProps) => {
                 {exibirListaDeTarefas("Atrasadas", overdueTasks)}
 
                 {exibirListaDeTarefas("Para Hoje", todayTasks)}
+
+                {exibirListaDeTarefas("Para Amanhã", tomorrowTasks)}
 
                 {exibirListaDeTarefas("Para Esta Semana", weekTasks)}
 

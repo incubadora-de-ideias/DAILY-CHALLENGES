@@ -44,7 +44,7 @@ export const CardTask = (props: CardTaskProps) => {
   const navigate = useNavigate();
 
   return (
-    <div className="hover:bg-blue-50 flex flex-col rounded-xl bg-amber-50 text-black w-74 h-62 justify-between">
+    <div className="hover:bg-blue-50 flex flex-col rounded-xl bg-amber-50 text-black w-78 h-66 justify-between">
         <div className=" flex items-center justify-between p-2.5 bg-blue-400 rounded-t-xl" >
             <h3 title={props.title} className="line-clamp-1 font-bold">{props.title}</h3>
             <div className="flex gap-1 items-center">

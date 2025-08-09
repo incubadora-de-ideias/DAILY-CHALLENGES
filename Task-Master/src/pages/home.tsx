@@ -1,41 +1,49 @@
 import { useState } from "react";
 import { Filter  } from "../components/filter";
-import Sidebar from "../components/sidebar";
+import { useTasks } from "../hooks/useTasks";
+import Init from "../components/init";
+import { OutOfTask } from "../components/outOfTask";
+
+import { FiChevronDown } from "react-icons/fi";
+
 
 export default function Home() {
-  const [filte, setFilter] = useState("done")
-  const [search, setSearch] = useState("")
+  const { tasks } = useTasks();
+  const [filter, setFilter] = useState("done")
 
-  return (
-      <div className="min-h-screen bg-neutral-900 text-white">
-        <header className="bg-stone-950 flex justify-between p-6 items-center border-b border-l border-gray-400 rounded-t-xl">
-          <h1 className="text-4xl font-bold">🧠 TaskMaster</h1>
-          <h2 className="text-cyan-100 text-lg">Bem vindo ao seu app To-do!</h2>
-        </header>
-
-        <div className="flex"> 
-          <Sidebar /> 
-        
-          <div className="flex-1">
-            <div className="p-5 min-h-[550px] max-h-[calc(100vh-90px)] overflow-y-auto scrollbar scrollbar-thumb-gray-800 scrollbar-hover:scrollbar-thumb-slate-700">
-                  <div className="flex items-start w-full justify-between p-3 mb-5">
-                      <input type="search" value={search} onChange={(text) => setSearch(text.target.value) } className="p-2 bg-neutral-700 border border-gray-600 rounded-3xl w-90" placeholder="Pesquisar" />
-
-                      <select value={filte} onChange={(text) => setFilter(text.target.value) } id="filter" className="p-2 bg-neutral-700 border border-gray-600 rounded-3xl w-50" >
-                        <option value="done">Status</option>
-                        <option value="priority">Prioridade</option>
-                        <option value="prazo">Prazo</option>
-                        <option value="tag">Tag</option>
-                      </select>
-
-                  </div>
-                  <div>
-                      <Filter filter={filte}></Filter>
-                  </div>
+  if (tasks.length === 0) {
+    return <Init>
+            <OutOfTask></OutOfTask>
+          </Init>
+  } else {
+    return (
+            <Init>
+              <div className="flex flex-row-reverse p-3">
                   
-            </div>
-          </div>
-        </div>
-      </div>
-  );
-}
+              <div className="relative inline-block w-48">
+                <select
+                  value={filter}
+                  onChange={(e) => setFilter(e.target.value)}
+                  id="filter"
+                  className="pl-4 appearance-none w-full p-2 pr-10 bg-neutral-800 text-white border border-gray-600 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-400 hover:bg-neutral-700">
+                  <option value="done">Status</option>
+                  <option value="priority">Prioridade</option>
+                  <option value="prazo">Prazo</option>
+                  <option value="tag">Tag</option>
+                </select>
+  
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-white">
+                  <FiChevronDown className={`text-lg `} />
+                </div>
+              </div>
+  
+  
+              </div>
+  
+              <div>
+                  <Filter filter={filter}></Filter>
+              </div>
+            </Init>
+    );
+  }
+};

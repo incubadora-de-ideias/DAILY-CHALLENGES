@@ -22,7 +22,6 @@
 
   Temos um **header**(cabeçalho), onde é exibido o título da task à esquerda, alguns ícones e ainda um botão à direita.
   
-  ```
   • O primeiro ícone representa o **status de prioridade** da task.
     1. O vermelho é de **prioridade alta.**
     2. O amarelo é de **prioridade média**.
@@ -31,7 +30,7 @@
   • O segundo representa o **status da task**, quanto a a **proximidade da data de vencimento**.
 
   • Já o botão, serve para **marcar a task como completa ou incompleta**.
-```
+
   ---
 
 ### 2️⃣ Body
@@ -46,7 +45,7 @@
 
   Já no **footer**(rodapê) do card, temos a esquerda a informação sobre o vencimento da task e um botão a direita.
   ```
-  • O botão serve para *deletar a task*.
+  • O botão serve para deletar a task.
   ```
 
   ---
@@ -60,4 +59,12 @@
   2. Tailwind-scrollbar
   ```
   npm install tailwind-scrollbar
+  ```
+  3. React Icons
+  ```
+  npm install react-icons
+  ```
+  4. React Router
+  ```
+  npm install react-router-dom
   ```

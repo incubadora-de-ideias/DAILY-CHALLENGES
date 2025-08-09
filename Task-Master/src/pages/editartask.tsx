@@ -31,20 +31,14 @@ export default function EditarTarefa() {
 
     return(
         <Init>
-            <div>
-                <h1 className="text-2xl font-bold mb-4 pt-5">Editar Tarefa " {taskToEdit?.title} "</h1>
-                <div className="bg-stone-760 p-6 rounded-xl shadow-md w-fit h-fit">
+            <div className="flex flex-col items-center justify-center text-gray-300">
+                <h1 className="text-3xl font-semibold mb-4 pt-5">Editar Tarefa " {taskToEdit?.title} "</h1>
+                <div className="bg-stone-760 p-6 rounded-xl shadow-md w-fit h-108 border border-zinc-800">
                     <div className="mb-4 flex gap-8">
                         <div className="mb-4">
                             <label className="block text-gray-300 mb-2" htmlFor="title">Título</label>
                             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} id="title" placeholder="Obrigatório" className="w-1xl p-2 bg-neutral-700 border border-gray-600 rounded-lg" required />
                         </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-300 mb-2" htmlFor="description">Descrição(Notas)</label>
-                            <textarea value={description} onChange={(e) => setDescription(e.target.value)} id="description" placeholder="Opcional" rows={5} className="w-180 p-2 bg-neutral-700 border border-gray-600 rounded-lg"></textarea>
-                        </div >
-                    </div>
-                    <div className="mb-4 flex gap-8">
                         <div className="mb-4">
                             <label className="block text-gray-300 mb-2" htmlFor="description">Data de Vencimento</label>
                             <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} id="dueDate" className="p-2 bg-neutral-700 border border-gray-600 rounded-lg" />
@@ -61,6 +55,12 @@ export default function EditarTarefa() {
                             <label className="block text-gray-300 mb-2" htmlFor="title">Tag</label>
                             <input type="text" value={tag} onChange={(e) => setTag(e.target.value)} id="tag" placeholder="Opcional" className="w-1xl p-2 bg-neutral-700 border border-gray-600 rounded-lg" required />
                         </div>
+                    </div>
+                    <div className="mb-4 flex gap-8">
+                        <div className="mb-4">
+                            <label className="block text-gray-300 mb-2" htmlFor="description">Descrição(Notas)</label>
+                            <textarea value={description} onChange={(e) => setDescription(e.target.value)} id="description" placeholder="Opcional" rows={6} className="w-180 p-2 bg-neutral-700 border border-gray-600 rounded-lg"></textarea>
+                        </div >
                     </div>
                     <button onClick={() => {
                         if (!title.trim()) {
