@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "nome": "Administrador",
+    "email": "admin@biblioteca.com",
+    "senha": "admin123",
+    "tipo": "Admin"
+  },
+  {
+    "id": 2,
+    "nome": "Nelson Marques",
+    "email": "nelson@biblioteca.com",
+    "senha": "nelson123",
+    "tipo": "Comum"
+  }
+
+]
+

@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "titulo": "Dom Casmurro",
+    "autor": "Machado de Assis",
+    "ano": 1899,
+    "genero": "Romance",
+    "status": "Disponível"
+  },
+  {
+    "id": 2,
+    "titulo": "C# Para Vida",
+    "autor": "Lucas Pazito",
+    "ano": 2020,
+    "genero": "Programação",
+    "status": "Disponível"
+  },
+  {
+    "id": 3,
+    "titulo": "Python Para Iniciantes",
+    "autor": "Nelson Tito Mário",
+    "ano": 2021,
+    "genero": "Programação",
+    "status": "Disponível"
+  },
+  {
+    "id": 4,
+    "titulo": "Introdução a Redes de Computadores",
+    "autor": "João da Silva",
+    "ano": 2020,
+    "genero": "Redes",
+    "status": "Disponível"
+  }
+]
+

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "livroId": 1,
+    "usuarioId": 2,
+    "dataEmprestimo": "2025-01-15",
+    "dataPrevistaDevolucao": "2025-01-29",
+    "dataDevolucao": "2025-01-28",
+    "status": "Finalizado"
+  },
+  {
+    "id": 2,
+    "livroId": 2,
+    "usuarioId": 2,
+    "dataEmprestimo": "2025-01-10",
+    "dataPrevistaDevolucao": "2025-01-24",
+    "dataDevolucao": null,
+    "status": "Ativo"
+  },
+  {
+    "id": 3,
+    "livroId": 3,
+    "usuarioId": 1,
+    "dataEmprestimo": "2025-01-20",
+    "dataPrevistaDevolucao": "2025-02-03",
+    "dataDevolucao": "2025-02-02",
+    "status": "Finalizado"
+  },
+  {
+    "id": 4,
+    "livroId": 4,
+    "usuarioId": 2,
+    "dataEmprestimo": "2025-01-15",
+    "dataPrevistaDevolucao": "2025-01-29",
+    "dataDevolucao": null,
+    "status": "Ativo"
+  }
+]
